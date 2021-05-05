@@ -6,13 +6,20 @@ const url = require('url');
 const querystring = require('querystring');
 const cors = require('cors')
 var mongoose = require('mongoose');
-var port = process.env.PORT || 8000;
-var MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/recco"
+const rateLimiter = require('./middlewares/rateLimiter');
+const config = require('./config');
 
+const { db: { host, mport, name } } = config;
+var MONGO_URL = process.env.MONGO_URL || `mongodb://${host}:${mport}/${name}`;
+var port = process.env.PORT || config.app.port;
 
+if (config.rateLimit.active){
+  app.use(rateLimiter);
+}
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+
 
 var router = express.Router();
 const movies = require('./routes/movies');
