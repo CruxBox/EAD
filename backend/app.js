@@ -4,13 +4,15 @@ let app = express();
 const bodyParser = require('body-parser');
 const url = require('url');
 const querystring = require('querystring');
+const cors = require('cors')
 var mongoose = require('mongoose');
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8000;
 var MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/recco"
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 var router = express.Router();
 const movies = require('./routes/movies');
