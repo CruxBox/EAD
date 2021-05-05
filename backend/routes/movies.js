@@ -202,9 +202,9 @@ app.get('/search_response_with_tmdb_id', async (req, res) => {
 });
 
 //This should get an integer
-app.get('/', async (req, res) => {
+app.get('/:id', async (req, res) => {
 	console.log('got req')
-	let id = req.query.movie_id;
+	let id = req.params.id;
 	
 	var args = {
 	  pathParameters: {

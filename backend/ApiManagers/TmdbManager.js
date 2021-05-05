@@ -4,7 +4,7 @@ const MovieDB = require('node-themoviedb');
 class TmdbApiManager {
 	constructor(){
 		// console.log('reached')
-		this.mdb = new MovieDB('6d343765c641930b74aae2d4a89c22f8', 'en-US');
+		this.mdb = new MovieDB('6d343765c641930b74aae2d4a89c22f8', 'en-IND');
 	}
 
 	async get_movie_info(args, json){
@@ -62,7 +62,7 @@ class TmdbApiManager {
 						break;
 					}
 
-					responses.push(JSON.stringify(movies[j]));
+					responses.push(movies[j]);
 					// console.log(movies[j])
 					count++;
 				}
@@ -75,7 +75,7 @@ class TmdbApiManager {
 		}
 		console.log('done with movie search')
 		// console.log('Responses:')
-		responses = JSON.stringify(responses, null, 4).replace(/\\/g, '')
+		//responses = JSON.stringify(responses, null, 4).replace(/\\/g, '')
 		// console.log(responses)
 		return responses;
 	}
@@ -108,7 +108,7 @@ class TmdbApiManager {
 						break;
 					}
 
-					responses.push(JSON.stringify(movies[j]));
+					responses.push(movies[j]);
 					// console.log(movies[j])
 					count++;
 				}
@@ -121,7 +121,7 @@ class TmdbApiManager {
 		}
 		console.log('done with getting popular movies')
 		// console.log('Responses:')
-		responses = JSON.stringify(responses, null, 4).replace(/\\/g, '')
+		//responses = JSON.stringify(responses, null, 4).replace(/\\/g, '')
 		// console.log(responses)
 		return responses;
 	}

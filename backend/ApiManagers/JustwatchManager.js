@@ -3,7 +3,7 @@ const JustWatch = require('justwatch-api');
 class JustwatchManager {
 
 	constructor(){
-		this.manager = new JustWatch();
+		this.manager = new JustWatch({locale:"en_IN"});
 	}
 
 	async search_response_with_tmdb_id(id, title){
@@ -48,7 +48,6 @@ class JustwatchManager {
 			} catch(e){
 				throw e;
 			}
-		searchResult = JSON.stringify(searchResult);
 		return searchResult;
 	}
 }
