@@ -10,10 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "justwatch-api": "^1.0.7",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1",
     "mongodb": "^3.6.6",
+    "mongoose": "^5.12.7",
     "node-themoviedb": "^0.2.8"
   },
   "devDependencies": {
